@@ -5,6 +5,8 @@
         class="border-2 h-10 px-3 rounded focus:outline-blue-200"
         placeholder="Search by name"
         type="text"
+        [(ngModel)]="value"
+        (input)="search(value)"
       />
     </div>
     <div class="flex justify-center items-center mx-10">
