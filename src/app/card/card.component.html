@@ -1,6 +1,52 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">{{ title }}</div>
+    <section class="flex justify-between">
+      <div class="font-bold text-xl mb-2">{{ title }}</div>
+      <!-- menu.component.html -->
+      <div class="relative inline-block text-left" (click)="toggleMenu()">
+        <button
+          type="button"
+          class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-blue-200 focus:ring-1"
+        >
+          Opciones
+          <svg
+            class="-mr-1 ml-2 h-5 w-5 inline-block align-middle"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 8a1 1 0 01.707.293l4 4a1 1 0 01-1.414 1.414L10 10.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4A1 1 0 0110 8z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        @if (menuVisible) {
+        <div
+          class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          tabindex="-1"
+        >
+          <div class="py-1" role="none">
+            <!-- Menu options -->
+            @for (label of items; track label) {
+            <a
+              href="{{ label.url }}/1"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              role="menuitem"
+              tabindex="-1"
+              >{{ label.label }}</a
+            >
+            }
+          </div>
+        </div>
+        }
+      </div>
+    </section>
+
     <p>{{ tlf }}</p>
     <p class="text-gray-700 text-base">
       {{ content }}
