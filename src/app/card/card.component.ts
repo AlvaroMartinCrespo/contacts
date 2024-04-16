@@ -19,6 +19,7 @@ export class CardComponent {
     this.menuVisible = !this.menuVisible;
   }
 
+  @Input() id: string = '';
   @Input() title: string = '';
   @Input() content: string = '';
   @Input() tlf: string = '';

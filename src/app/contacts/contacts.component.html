@@ -18,12 +18,13 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-x-10 lg:gap-y-10 gap-y-5 justify-items-center"
     >
-      @for (contact of arrayContacs; track contact){
+      @for (user of users; track user){
       <app-card
-        [title]="'Nombre'"
-        [content]="'Contenido de la tarjeta. Tiene que ser extenso'"
-        [tlf]="'xxx xx xx xx'"
-        [email]="'example@email.es'"
+        [id]="user.id"
+        [title]="user.name"
+        [content]="user.description"
+        [tlf]="user.tlf"
+        [email]="user.email"
       ></app-card>
       } @empty{
       <p class="text-center italic">No contacts found</p>
