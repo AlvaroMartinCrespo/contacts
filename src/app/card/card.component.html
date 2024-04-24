@@ -1,8 +1,7 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white w-full h-52">
   <div class="px-6 py-4">
     <section class="flex justify-between">
-      <div class="font-bold text-xl mb-2">{{ title }}</div>
-      <!-- menu.component.html -->
+      <div class="font-bold text-xl mb-2 px-5">{{ title }}</div>
       <div class="relative inline-block text-left" (click)="toggleMenu()">
         <button
           type="button"
@@ -48,8 +47,8 @@
       </div>
     </section>
 
-    <p>{{ tlf }}</p>
-    <p class="text-gray-700 text-base">
+    <p class="my-2">{{ tlf }}</p>
+    <p class="text-gray-700 text-base mb-2">
       {{ content }}
     </p>
     <span class="text-gray-500 font-bold">{{ email }}</span>
