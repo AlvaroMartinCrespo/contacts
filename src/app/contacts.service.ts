@@ -1,5 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import {
+  addDoc,
+  collection,
+  collectionData,
+  Firestore,
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User } from './interfaces/user.interface';
 
@@ -20,5 +25,9 @@ export class ContactsService {
    */
   getContacts() {
     return collectionData(this._collection) as Observable<User[]>;
+  }
+
+  createContact(contact: User) {
+    return addDoc(this._collection, contact);
   }
 }

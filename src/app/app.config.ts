@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
     provideClientHydration(),
-    provideToastr({timeOut:900, preventDuplicates:true}),
+    provideToastr({ timeOut: 2000, preventDuplicates: true }),
     provideAnimations(),
     firebaseProviders,
   ],

@@ -1,7 +1,9 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ContactsService } from '../contacts.service';
+import { User } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-create',
@@ -11,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './create.component.css',
 })
 export class CreateComponent {
+  private _contactService = inject(ContactsService);
   constructor(private toastr: ToastrService) {}
   submitForm(form: NgForm) {
     const name = form.value.name;
@@ -19,10 +22,11 @@ export class CreateComponent {
     const description = form.value.description;
 
     if (!name || !email || !phone || !description) {
-      this.toastr.error('Por favor, complete todos los campos', 'Error');
+      this.toastr.error('Por favor, complete todos los campos');
     } else {
-      // Aquí puedes enviar el formulario si todos los campos están llenos
-      this.toastr.success('Hello world!', 'Toastr fun!');
+      this._contactService.createContact(form.value);
+      this.toastr.success('Contact created');
+      form.reset();
     }
   }
 }
