@@ -38,7 +38,9 @@ export class EditComponent {
   }
 
   submitForm(form: NgForm) {
-    console.log('user edited');
+    this._contactService.updateContact(this.id, this.userDefault);
+    this.toastr.success('Contact updated');
+    this.router.navigate(['/contacts']);
   }
 
   async setFormValues() {
