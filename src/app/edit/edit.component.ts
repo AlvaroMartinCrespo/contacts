@@ -33,7 +33,6 @@ export class EditComponent {
   ngOnInit(): void {
     // Get the id from the url
     this.id = this.route.snapshot.params['id'];
-
     this.setFormValues();
   }
 
