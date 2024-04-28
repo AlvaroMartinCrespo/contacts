@@ -3,7 +3,10 @@ import {
   addDoc,
   collection,
   collectionData,
+  doc,
   Firestore,
+  getDoc,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User } from './interfaces/user.interface';
@@ -24,10 +27,28 @@ export class ContactsService {
    * @returns observable
    */
   getContacts() {
-    return collectionData(this._collection) as Observable<User[]>;
+    return collectionData(this._collection, { idField: 'id' }) as Observable<
+      User[]
+    >;
   }
 
   createContact(contact: User) {
     return addDoc(this._collection, contact);
+  }
+
+  updateContact(id: string, contact: User) {
+    const document = doc(this._firestore, PATH, id);
+    return updateDoc(document, { ...contact });
+  }
+
+  async getContact(id: string) {
+    const document = doc(this._firestore, PATH, id);
+    try {
+      const snapshot = await getDoc(document);
+      return snapshot.data() as User;
+    } catch (e: any) {
+      console.error(e);
+      return undefined;
+    }
   }
 }

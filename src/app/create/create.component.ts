@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ContactsService } from '../contacts.service';
-import { User } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-create',

@@ -1,5 +1,77 @@
 <section class="container mx-auto my-10">
-  <div class="flex justify-center flex-row">
-    <h1 class="text-3xl font-bold">Edit Contacts {{ id }}</h1>
-  </div>
+  <section class="container mx-auto my-10 px-4 lg:px-0">
+    <section class="container mx-auto">
+      <div class="max-w-xl mx-auto">
+        <div class="bg-white shadow-md rounded-lg px-8 py-6">
+          <form
+            #editForm="ngForm"
+            (ngSubmit)="submitForm(editForm)"
+            class="space-y-4"
+          >
+            <div class="flex justify-center w-full">
+              <h1 class="text-3xl font-bold">Edit Contact</h1>
+            </div>
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700"
+                >Name</label
+              >
+              <input
+                id="name"
+                [(ngModel)]="userDefault.name"
+                name="name"
+                type="text"
+                class="px-5 py-2 mt-1 focus:outline-blue-200 block w-full shadow-sm sm:text-sm border rounded-lg"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700"
+                >Email</label
+              >
+              <input
+                id="email"
+                [(ngModel)]="userDefault.email"
+                name="email"
+                type="email"
+                class="mt-1 px-5 py-2 focus:outline-blue-200 block w-full shadow-sm sm:text-sm border rounded-lg"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700"
+                >Phone</label
+              >
+              <input
+                id="phone"
+                [(ngModel)]="userDefault.phone"
+                name="phone"
+                type="tel"
+                class="mt-1 px-5 py-2 focus:outline-blue-200 block w-full shadow-sm sm:text-sm border rounded-lg"
+              />
+            </div>
+            <div>
+              <label
+                for="description"
+                class="block text-sm font-medium text-gray-700"
+                >Description</label
+              >
+              <textarea
+                id="description"
+                [(ngModel)]="userDefault.description"
+                name="description"
+                rows="3"
+                class="px-5 py-2 mt-1 focus:outline-blue-200 block w-full shadow-sm sm:text-sm border rounded-lg"
+              ></textarea>
+            </div>
+            <div class="flex justify-end">
+              <button
+                type="submit"
+                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </section>
 </section>
